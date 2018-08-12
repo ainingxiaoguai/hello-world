@@ -71,3 +71,10 @@ def daysBetweenDates(year1, month1, day1, year2, month2, day2):
 #            print "Test case passed!"
 
 #test()
+
+
+method2  
+
+def print_abacus(value):
+    for c in ((10 - len(str(value))) * '0' + str(value)):
+        print('|00000*****|'[ : -1 - int(c)] + '   ' + '|00000*****|'[-1 - int(c) : ])
