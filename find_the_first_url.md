@@ -11,7 +11,7 @@ end_quote = page.find('"', start_quote+1)
 url = page[start_quote+1, end_quote]
 
 
-**********************************************************
+  _______________________________________________________
 #四舍五入
 
   function number_45(num)
@@ -22,13 +22,13 @@ url = page[start_quote+1, end_quote]
       print(num_str[:position])
   
   }
-  
-  **********************************************************
+    _______________________________________________________
+    
   #回文，正反读一样“madam”
   
   print(word.find(word[::-1]))
   
-  ************************************************************
+  _______________________________________________________
   # Define a procedure, median, that takes three
 # numbers as its inputs, and returns the median
 # of the three numbers.
@@ -52,3 +52,20 @@ def median(a, b ,c):
       return bigger(a,c)
     if c== big:
       return bigger(b,a)
+      
+  _______________________________________________________
+  #给出三个数的范围
+  
+  def bigger(a,b):
+    if a >b:
+        return a
+    else 
+        return b
+        
+def biggest(a,b,c):
+    return bigger(a, bigger(b,c))
+    
+def set_range(a,b,c):
+    # Your code here
+    n = biggest(a,b,c)
+    return biggest(n-a, n-b, n-c)
