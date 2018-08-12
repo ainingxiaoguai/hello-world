@@ -8,14 +8,15 @@
 #
 
 daysOfMonths = [ 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-
+    
 def isLeapYear(year):
     if year % 100 == 0:
+        if year % 400 == 0 and year % 4 == 0:
+            return True
         return False
-    elif year % 400 == 0 or year % 4 == 0:
+    elif year % 4 == 0:
         return True
-    else:
-        return False
+    return False
     
 def daysInMonth(year,month):
     if month == 2 and isLeapYear(year):
