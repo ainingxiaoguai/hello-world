@@ -1,0 +1,93 @@
+correct = [[1,2,3],
+           [2,3,1],
+           [3,1,2]]
+
+incorrect = [[1,2,3,4],
+             [2,3,1,3],
+             [3,1,2,3],
+             [4,4,4,4]]
+
+incorrect2 = [[1,2,3,4],
+             [2,3,1,4],
+             [4,1,2,3],
+             [3,4,1,2]]
+
+incorrect3 = [[1,2,3,4,5],
+              [2,3,1,5,6],
+              [4,5,2,1,3],
+              [3,4,5,2,1],
+              [5,6,4,3,2]]
+
+incorrect4 = [['a','b','c'],
+              ['b','c','a'],
+              ['c','a','b']]
+  
+def bigger(a,b):
+    if a >b:
+        return a
+    else: 
+        return b
+        
+def biggest(a,b,c):
+    return bigger(a, bigger(b,c))
+    
+def set_range(a,b,c):
+    # Your code here
+    n = biggest(a,b,c)
+    return biggest(n-a, n-b, n-c)
+
+
+#数独检查
+def check_line(p, line):
+    a = []
+    for i in p:
+        if i not in a:
+            a.append(i)
+    if len(a) == len(p):
+        for i in p:
+            if i not in line:
+                return False
+        return True
+    else:
+        return False
+
+def matrix_transport(m):
+    m_t = []
+    a   = []
+    for i in range(len(m[0])):
+        for j in range(len(m)):
+            a.append(m[j][i])
+        m_t.append(a)
+        a=[]
+    return m_t
+
+def check_sudoku(matrix):
+
+    matrix_col = []
+    matrix_col = matrix_transport(matrix)
+
+    if len(matrix) != len(matrix_col):
+        return False
+
+    line_1 = matrix[0]
+
+    for i in matrix:
+        if not check_line(i, line_1):
+            return False
+    
+
+    for i in matrix_col:
+        if not check_line(i, line_1):
+            return False
+    return True
+
+
+print(check_sudoku(correct))
+
+print(check_sudoku(incorrect2))
+
+print(check_sudoku(incorrect3))
+#>>> False
+
+print(check_sudoku(incorrect4))
+#>>> False
