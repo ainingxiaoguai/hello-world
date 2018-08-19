@@ -34,12 +34,15 @@ def get_page(url):
  def crawl_web(seeds):
      tocrawl = [seeds]
      crawled = []
+     index = []
      while tocrawl:
         page = tocrawl.pop()
         if page not in crawled:
-            union(tocrawl, get_all_link(get_page(page)))
+            content = get_page(page)
+            add_page_to_index(index, paeg, content)
+            union(tocrawl, get_all_link(content))
             crawled.append(page)
-     return crawled
+     return crawled,index
      
   index= []
   def add_to_index(index, keyword, url):
@@ -55,3 +58,8 @@ def get_page(url):
         if entry[0] == keyword:
             return entry[1]
     return []
+    
+    def add_page_to_index(index, url, content):
+        words = content.split()
+        for word in words:
+            add_to_index(index, keyword, url)
