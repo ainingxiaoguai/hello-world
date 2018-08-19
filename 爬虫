@@ -15,12 +15,43 @@ def get_page(url):
     url = page[start_quote + 1:end_quote]
     return url, end_quote
     
- def print_all_link(page):
+ def get_all_link(page):
+    links=[]
     while True:
       url,end_quote= get_next_target(page)
       if url:
-        print(url)
+        links.append(url)
         page=page[end_quote:]
       else:
         break
+    return links
+    
+ def union(p,q):
+    for i in q:
+        if i not in p:
+            p.append(i)
+    
+ def crawl_web(seeds):
+     tocrawl = [seeds]
+     crawled = []
+     while tocrawl:
+        page = tocrawl.pop()
+        if page not in crawled:
+            union(tocrawl, get_all_link(get_page(page)))
+            crawled.append(page)
+     return crawled
+     
+  index= []
+  def add_to_index(index, keyword, url):
+    for entry in index:
+        if entry[0] == keyword:
+            entry[1].append(url)
+            return
+    index.append([keyword,[url]])
     return
+    
+   def lookup(index, keyword):
+    for entry in index:
+        if entry[0] == keyword:
+            return entry[1]
+    return []
