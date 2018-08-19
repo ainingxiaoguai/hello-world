@@ -14,4 +14,5 @@
   
 6.pop
   <list>.pop()  移除list的最后一个元素并返回
-  
+7.split   
+  <string>.split()  以空格为分隔符分割string成一个list
