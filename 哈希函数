@@ -30,3 +30,34 @@ def test_hash_function(func, keys, size):
       for i in range(nbuckets):
         hash.append([])
       return hash
+  4,查找哈希桶
+    def hashtable_get_bucket(htable, key):
+      return htable[hash_string(key, len(htable))]
+  5.添加哈希
+    def hashtable_add(htable,key,value):
+      h = hash_string(key, len(htable))
+      if len(htable[h]) == 0:
+        htable[h].append([key,[value]])
+      else:
+        for i in range(htable[h]):
+          if htable[h][i][0] == key:
+            htable[h][i][1].append(value)
+            return htable
+        htable[h].append([key,[value]])
+     return htable  
+   6,查找关键词
+     def hashtable_lookup(htable,key):
+        h = hashtable_get_bucket(htable,key)
+        for entry in h:
+          if entry[0] == key：
+              return entry[1]
+        return None
+        
+   7,def hashtable_update(htable,key,value):
+        h = hashtable_get_bucket(htable,key)
+        for entry in h:
+          if entry[0] == key：
+              entry[1]=value
+              return htable
+        h.appen([key, value])
+        return htable
