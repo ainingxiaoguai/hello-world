@@ -1,0 +1,32 @@
+1，测试函数
+def test_hash_function(func, keys, size):
+  result = [0]*size
+  key_usd = []
+  for w in keys:
+    if w not in key_usd:
+      h = func(w)
+      result[h]+=1
+      key_usd.append(w)
+  return result
+  
+ 2,哈希函数
+ def hash_string(keys, size):
+  num = 0
+  for i in keys:
+    num = (num + ord(i))%size
+  return num
+  
+  3,生成空的哈希表
+  def make_hashtable(nbuckets):
+    hash = []
+    i = 0
+    while i < nbuckets:
+      hash.append([])
+      i+=1
+    return hash
+    
+   def make_hashtable(nbuckets):
+      hash=[]
+      for i in range(nbuckets):
+        hash.append([])
+      return hash
