@@ -16,3 +16,7 @@
   <list>.pop()  移除list的最后一个元素并返回
 7.split   
   <string>.split()  以空格为分隔符分割string成一个list
+  
+  8.chr() 将一个字符转换为对应的 assci
+  
+  9.ord() 将assci码转换为对应的字符
