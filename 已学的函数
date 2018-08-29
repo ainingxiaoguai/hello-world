@@ -20,3 +20,38 @@
   8.chr() 将一个字符转换为对应的 assci
   
   9.ord() 将assci码转换为对应的字符
+
+  10. time.sleep()  
+      time.ctime()
+  11.webbrowser.open(url)
+  
+  12. save_path = os.getcwd() 获取当前工作目录
+  
+      os.chdir(r"c:/...")  变换工作目录
+      
+      os.listdir(r"c://..") 列出指定目录下的所有文件名
+      
+      os.rename(old_name, new_name) 变换文件名称
+      
+      string.translate(NULL, "0123456789") 去除string中的数字
+      
+      
+#!/usr/bin/python
+ 
+from string import maketrans   # Required to call maketrans function.
+ 
+intab = "aeiou"
+outtab = "12345"
+trantab = maketrans(intab, outtab)
+ 
+str = "this is string example....wow!!!";
+print str.translate(trantab, 'xm');
+
+from string import maketrans   # 引用 maketrans 函数。
+ 
+intab = "aeiou"
+outtab = "12345"
+trantab = maketrans(intab, outtab)
+ 
+str = "this is string example....wow!!!";
+print str.translate(trantab);
