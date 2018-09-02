@@ -14,3 +14,22 @@ def draw_square():
   brad.right(90)
   
   window.exitonclick()
+  
+  
+  不雅词查找
+  
+  import urllib.request
+def read_text():
+	quotes = open(r"C:\Users\xiaoguai\movie_quotes.txt")
+	contents = quotes.read()
+	print(contents)
+	quotes.close()
+	check_profanity(contents)
+	
+def check_profanity(contents):
+	connection = urllib.request.urlopen("http://www.wdylike.com/profanity?q="+contents)
+	output = connection.read()
+	print(output)
+	connection.close()
+	
+read_text()
