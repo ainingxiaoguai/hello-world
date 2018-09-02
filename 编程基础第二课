@@ -33,3 +33,27 @@ def check_profanity(contents):
 	connection.close()
 	
 read_text()
+
+
+父类 子类
+
+class Parent():
+	def __init__(self, last_name, eye_color):
+		print("parent constructor")
+		self.last_name = last_name
+		self.eye_color = eye_color
+		
+	def show_info(self):
+		print("Last Name" + self.last_name)
+		print("Eye color" + self.eye_color)
+		
+class Child(Parent):
+	def __init__(self, last_name, eye_color, toy_num):
+		print("Child constructor")
+		Parent.__init__(self, last_name, eye_color)
+		self.toy_num = toy_num
+		
+	def show_info(self):
+		print("Last Name" + self.last_name)
+		print("Eye color" + self.eye_color)
+		print("Toy num " + self.toy_num)
